@@ -3,6 +3,7 @@
 namespace TheBachtiarz\AccountResource\Repositories;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use TheBachtiarz\AccountResource\Interfaces\Model\AccountResourceInterface;
 use TheBachtiarz\AccountResource\Models\AccountResource;
 
 class AccountResourceRepository extends AbstractRepositories
@@ -14,9 +15,9 @@ class AccountResourceRepository extends AbstractRepositories
      * Get resource by id
      *
      * @param integer $id
-     * @return AccountResource
+     * @return AccountResourceInterface
      */
-    public function getById(int $id): AccountResource
+    public function getById(int $id): AccountResourceInterface
     {
         $_accountResource = AccountResource::find($id);
 
@@ -29,9 +30,9 @@ class AccountResourceRepository extends AbstractRepositories
      * Get resource by code
      *
      * @param string $code
-     * @return AccountResource
+     * @return AccountResourceInterface
      */
-    public function getByCode(string $code): AccountResource
+    public function getByCode(string $code): AccountResourceInterface
     {
         $_accountResource = AccountResource::getByCode($code)->first();
 
@@ -43,12 +44,15 @@ class AccountResourceRepository extends AbstractRepositories
     /**
      * Create new resource
      *
-     * @param AccountResource $accountResource
+     * @param AccountResourceInterface $accountResourceInterface
      * @return AccountResource
      */
-    public function create(AccountResource $accountResource): AccountResource
+    public function create(AccountResourceInterface $accountResourceInterface): AccountResourceInterface
     {
-        $_create = $this->createFromModel($accountResource);
+        /** @var AccountResource $accountResourceInterface */
+
+        /** @var AccountResource $_create */
+        $_create = $this->createFromModel($accountResourceInterface);
 
         if (!$_create) throw new ModelNotFoundException("Failed to create new resource");
 
@@ -58,16 +62,17 @@ class AccountResourceRepository extends AbstractRepositories
     /**
      * Update current resource
      *
-     * @param AccountResource $accountResource
-     * @return AccountResource
+     * @param AccountResourceInterface $accountResourceInterface
+     * @return AccountResourceInterface
      */
-    public function save(AccountResource $accountResource): AccountResource
+    public function save(AccountResourceInterface $accountResourceInterface): AccountResourceInterface
     {
-        $_accountResource = $accountResource->save();
+        /** @var AccountResource $accountResourceInterface */
+        $_accountResource = $accountResourceInterface->save();
 
         if (!$_accountResource) throw new ModelNotFoundException("Failed to save current resource");
 
-        return $accountResource;
+        return $accountResourceInterface;
     }
 
     /**
@@ -78,7 +83,10 @@ class AccountResourceRepository extends AbstractRepositories
      */
     public function deleteById(int $id): bool
     {
-        return $this->getById($id)->delete();
+        /** @var AccountResource $_accountResource */
+        $_accountResource = $this->getById($id);
+
+        return $_accountResource->delete();
     }
 
     /**
@@ -89,7 +97,10 @@ class AccountResourceRepository extends AbstractRepositories
      */
     public function deleteByCode(string $code): bool
     {
-        return $this->getByCode($code)->delete();
+        /** @var AccountResource $_accountResource */
+        $_accountResource = $this->getByCode($code);
+
+        return $_accountResource->delete();
     }
 
     // ? Private Methods

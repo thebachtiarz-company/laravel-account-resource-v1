@@ -4,7 +4,7 @@ namespace TheBachtiarz\AccountResource\Interfaces\Model\Data;
 
 interface AccountResourceDataInterface
 {
-    public const ATTRIBUTE_NAME_CODE = 'code';
+    public const ATTRIBUTE_NAME_CODE = 'name';
 
     // ? Public Methods
     /**
