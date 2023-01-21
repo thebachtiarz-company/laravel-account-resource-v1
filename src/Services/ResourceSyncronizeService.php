@@ -56,7 +56,7 @@ class ResourceSyncronizeService extends AccountResourceService
                     }
                 }
             }
-        } while (count($this->accountResourceInterfaces));
+        } while (count($this->accountResourceInterfaces) > 0);
 
         return true;
     }
