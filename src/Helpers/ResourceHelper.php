@@ -48,7 +48,7 @@ class ResourceHelper
      * Resolve encrypted biodata
      *
      * @param string $encryptedBiodata
-     * @param boolean $onlyLatest
+     * @param boolean $onlyLatest default: false
      * @return array
      */
     public function biodataResolver(string $encryptedBiodata, bool $onlyLatest = false): array

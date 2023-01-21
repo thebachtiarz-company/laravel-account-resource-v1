@@ -20,6 +20,14 @@ class AccountResource extends Model implements AccountResourceInterface
     /**
      * {@inheritDoc}
      */
+    public function getId(): ?int
+    {
+        return $this->__get(self::ATTRIBUTE_ID);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getCode(): ?string
     {
         return $this->__get(self::ATTRIBUTE_CODE);

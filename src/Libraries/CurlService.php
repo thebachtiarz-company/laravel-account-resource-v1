@@ -2,12 +2,19 @@
 
 namespace TheBachtiarz\AccountResource\Libraries;
 
+use TheBachtiarz\AccountResource\Interfaces\Library\LibraryServiceInterface;
 use TheBachtiarz\AccountResource\Interfaces\Library\UrlDomainInterface;
 use TheBachtiarz\Toolkit\Helper\Curl\AbstractCurl;
+use TheBachtiarz\Toolkit\Helper\Curl\Data\CurlResolverData;
 
-class CurlService extends AbstractCurl
+abstract class CurlService extends AbstractCurl implements LibraryServiceInterface
 {
     //
+
+    /**
+     * {@inheritDoc}
+     */
+    abstract public function execute(array $data): CurlResolverData;
 
     /**
      * {@inheritDoc}

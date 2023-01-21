@@ -2,10 +2,9 @@
 
 namespace TheBachtiarz\AccountResource\Libraries;
 
-use TheBachtiarz\AccountResource\Interfaces\Library\LibraryServiceInterface;
 use TheBachtiarz\Toolkit\Helper\Curl\Data\CurlResolverData;
 
-class AccountCreateService extends CurlService implements LibraryServiceInterface
+class AccountCreateService extends CurlService
 {
     //
 

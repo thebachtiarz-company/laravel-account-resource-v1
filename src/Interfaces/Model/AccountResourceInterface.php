@@ -23,6 +23,13 @@ interface AccountResourceInterface
 
     // ? Getter Modules
     /**
+     * Get id
+     *
+     * @return integer|null
+     */
+    public function getId(): ?int;
+
+    /**
      * Get code
      *
      * @return string|null

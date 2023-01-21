@@ -7,7 +7,7 @@ class AppsProvider
     //
 
     public const COMMANDS = [
-        // 
+        \TheBachtiarz\AccountResource\Console\Commands\AccountResourceSyncCommand::class
     ];
 
     /**
