@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use TheBachtiarz\AccountResource\Interfaces\Model\AccountResourceInterface;
 use TheBachtiarz\AccountResource\Models\AccountResource;
 
-class AccountResourceRepository extends AbstractRepositories
+class AccountResourceRepository extends AbstractRepository
 {
     //
 

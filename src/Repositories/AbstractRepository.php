@@ -4,7 +4,7 @@ namespace TheBachtiarz\AccountResource\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class AbstractRepositories
+abstract class AbstractRepository
 {
     //
 
